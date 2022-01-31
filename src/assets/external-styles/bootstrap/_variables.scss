@@ -1,0 +1,28 @@
+////////////////////
+// Colors
+//
+$primary: #5e3687;
+$secondary: #40b5a6;
+$white: #fff;
+
+////////////////////
+// Fonts
+//
+$font-family-base: 'ProximaNova', serif;
+
+$font-sizes: (
+  1: var(--fs-plus-6),
+  2: var(--fs-plus-5),
+  3: var(--fs-plus-4),
+  4: var(--fs-plus-3),
+  5: var(--fs-plus-2),
+  6: var(--fs-plus-1),
+);
+
+////////////////////
+// Navbar
+//
+$navbar-dark-color: rgba($white, 0.9);
+$navbar-dark-hover-color: $white;
+$navbar-dark-active-color: $white;
+$navbar-dark-disabled-color: rgba($white, 0.25);

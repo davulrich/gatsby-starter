@@ -1,0 +1,11 @@
+node_modules
+public
+**/*.d.ts
+
+# modified by `yarn test` => ignore in prettier and eslint
+tsconfig.json
+.eslintrc.js
+jest.config.js
+
+# Gatsby config files
+gatsby-*.js

@@ -1,4 +1,4 @@
-# Gatsby default start
+# Gatsby default starter
 
 ## Prerequisites
 

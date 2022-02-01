@@ -6,6 +6,8 @@ module.exports = {
     description: '',
     siteUrl: process.env.SITE_URL,
     image: 'src/assets/images/favicon.png',
+    langs: ['en', 'cs'],
+    defaultLangKey: 'cs',
   },
   plugins: [
     `gatsby-plugin-advanced-sitemap`,
@@ -20,6 +22,15 @@ module.exports = {
       options: {
         id: 'GTM-MWMVVLR',
         includeInDevelopment: true,
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-i18n',
+      options: {
+        langKeyForNull: 'any',
+        langKeyDefault: 'cs',
+        useLangKeyLayout: true,
+        prefixDefault: true,
       },
     },
     {
@@ -58,6 +69,12 @@ module.exports = {
       options: {
         name: `images`,
         path: `${__dirname}/src/assets`,
+      },
+    },
+    {
+      resolve: `gatsby-source-wordpress`,
+      options: {
+        url: process.env.WPGRAPHQL_URL,
       },
     },
   ],

@@ -1,7 +1,39 @@
-// f TODO fix gatsby to remove react unused imports
-// https://www.gatsbyjs.com/docs/reference/release-notes/v3.0/#babel-preset-gatsby
 import React from 'react'
+import {graphql, navigate} from 'gatsby'
+import {getUserLangKey} from 'ptz-i18n'
+import {withPrefix} from 'gatsby-link'
 
-const IndexPage = () => <div>Home</div>
+interface Props {
+  data: {
+    site: {
+      siteMetadata: {
+        defaultLangKey: string
+        langs: string[]
+      }
+    }
+  }
+}
 
-export default IndexPage
+const RedirectIndex = (arguments_: Props) => {
+  if (typeof window === 'undefined') return null
+
+  const {langs, defaultLangKey} = arguments_.data.site.siteMetadata
+  const langKey = getUserLangKey(langs, defaultLangKey)
+  const homeUrl = withPrefix(`/${langKey}/`)
+  navigate(homeUrl)
+
+  return <div />
+}
+
+export default RedirectIndex
+
+export const pageQuery = graphql`
+  query IndexQuery {
+    site {
+      siteMetadata {
+        defaultLangKey
+        langs
+      }
+    }
+  }
+`

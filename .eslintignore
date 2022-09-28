@@ -8,4 +8,4 @@ tsconfig.json
 jest.config.js
 
 # Gatsby config files
-gatsby-*.js
+gatsby-*[.js,.ts]
